@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>XmlCalcSimulator</title>
+<link href="../index.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+.center {
+	text-align: center;
+}
+#simulation {
+	background-color: #E6E6E6;
+	color: #333333;
+	margin: 10px auto;
+	padding: 10px;
+	font-size: 20px;
+	text-align: center;
+}
+#simulation p {
+	font-size: 20px;
+	line-height: 1.4em;
+	font-weight: bold;
+}
+.formTbl {
+	width: 100%;
+	margin: 20px auto;
+}
+.formTbl th {
+	text-align: right;
+	width: 40%;
+}
+.formTbl td {
+	text-align: left;
+	font-weight: bold;
+	width: 30%;
+	white-space: nowrap;
+}
+#simulation input,
+#simulation select {
+	font-weight: bold;
+	font-size: 22px;
+}
+#resultTable {
+	margin: 10px auto;
+	width: 100%;
+	border: none;
+	border-collapse: collapse;
+}
+#resultTable tbody tr:nth-child(even) {
+	background-color: #F5F5F5;
+}
+#resultTable tbody tr:nth-child(odd) {
+	background-color: #E5E5E5;
+}
+#resultTable th, #resultTable td {
+	padding: 10px;
+	font-size: 20px;
+}
+#resultTable th {
+	text-align: left;
+}
+#resultTable td {
+	text-align: right;
+}
+#resultTable tfoot tr {
+	background-color: #FFFFFF;
+}
+#resultTable tfoot th, #resultTable tfoot td {
+	font-size: 24px;
+	font-weight: bold;
+}
+#resultTable .description {
+	font-size: 14px;
+	text-align: left;
+	white-space: normal;
+}
+</style>
+</head>
+
+<body>
+<header id="header">
+    <h1>Calc Simulation</h1>
+</header>
+<div id="contents">
+    <div id="simulation">
+        <p>下記に条件を入力頂きますと購入金額が算出されます。</p>
+        <form action="index.php" method="get">
+            <table class="formTbl">
+                <tr>
+                    <th><label for="price">車両落札金額</label></th>
+                    <td><input type="text" name="price" id="price" value="<!--[[VALUE_PRICE]]-->" style="text-align:right;" />円</td>
+                </tr>
+                <tr>
+                    <th><label for="displacement">排気量</label></th>
+                    <td><input type="text" name="displacement" id="displacement" value="<!--[[VALUE_DISPLACEMENT]]-->" style="text-align:right;" />cc</td>
+                </tr>
+                <tr>
+                    <th><label for="month">購入月</label></th>
+                    <td><select name="month" id="month"><!--[[OPTION_MONTH]]--></select>月</td>
+                </tr>
+            </table>
+            <input type="hidden" name="mode" value="cal" />
+            <p class="center"><button type="submit">Submit</button></p>
+        </form>
+        <p class="center"><img src="./images/arrow.png" width="417" height="48" alt="↓ご購入金額はこちらに表示されます↓" /></p>
+        <!--[[RESULT]]-->
+    </div>
+</div>
+</body>
+</html>
